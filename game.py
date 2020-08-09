@@ -27,7 +27,7 @@ def game_loop():
     all_sprites.add(player)
     game_running = True
     while game_running:
-        start = time.time()
+        # start = time.time()
         clock.tick(fps)
         # input
         for event in pygame.event.get():
@@ -52,4 +52,4 @@ def game_loop():
 
         pygame.display.flip()
         end = time.time()
-        print('one loop takes ' + str(end-start))
+        # print('one loop takes ' + str(end-start))
