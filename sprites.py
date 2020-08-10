@@ -27,6 +27,25 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (500 / 2, 500 / 2)
 
     def update(self, *args):
+        # args contains the list of enemy sprites. If we collide with them, don't allow us to move into them
+        enemies_collided = pygame.sprite.spritecollide(self, args[0], False)
+        for enemy in enemies_collided:
+            if enemy.rect.x > self.rect.x:
+                # we collided to the right, don't move right
+                if self.rect.x > self.old_x:
+                    self.rect.x = self.old_x
+            elif enemy.rect.x < self.rect.x:
+                # we collided to the left, don't move left
+                if self.rect.x < self.old_x:
+                    self.rect.x = self.old_x
+            if enemy.rect.y > self.rect.y:
+                # we collided to the top, don't move down
+                if self.rect.y > self.old_y:
+                    self.rect.y = self.old_y
+            elif enemy.rect.y < self.rect.y:
+                # we collided to the bottom, don't move up
+                if self.rect.y < self.old_y:
+                    self.rect.y = self.old_y
         if self.old_x < self.rect.x:
             # we are moving to the right, so perform a horizontal flip
             self.facing_right = True
@@ -64,8 +83,6 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.center = (400, 400)
 
     def update(self, *args):
-        # args contains the player sprite, which we can use to check collision
-
         if self.old_x < self.rect.x:
             # we are moving to the right, so perform a horizontal flip
             self.facing_right = True

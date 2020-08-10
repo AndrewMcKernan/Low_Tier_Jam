@@ -44,8 +44,8 @@ def game_loop():
         if keys[pygame.K_DOWN] or keys[pygame.K_s]:
             player.rect.y += player.velocity
         # update stuff
-        enemies.update(player)
-        player.update()
+        enemies.update()
+        player.update(enemies)
         # render
         screen.fill(Colour.BLACK)
         all_sprites.draw(screen)
