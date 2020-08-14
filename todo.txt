@@ -1,0 +1,16 @@
+- ~~create enemy movement (move towards player slower than the player can move)~~
+- ~~create attack animations~~ TODO: make sprites all the same dimensions and scale collision so that you don't jump
+                                around when turning around, and collision is still as expected mostly
+
+- ~~allow enemies to be killed by attacks~~
+- ~~allow enemies to damage player~~
+- shrink sprites to reasonable size, adjust velocity as needed
+- ~~spawn enemies continually in reasonable locations~~
+- ensure there are graphical indicators indicating ~~health~~, score indicator, etc
+- walking animations, other needed attack animations
+STRETCH:
+- add sound effects
+- create a map that slowly shrinks over time, that kills the player if they fall
+
+tallest height: 22
+widest width: 26
